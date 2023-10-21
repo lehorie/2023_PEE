@@ -53,11 +53,10 @@ public:
 		size_t start = stLat.find(".");
 		stLat.erase(0, start + 1);
 		std::string sec = stLat;
-		if (sizeof(sec) > 2)
-		{
-			sec.insert(2, ".");
-		}
-		std::cout << "Latitude " << deg << " degrees " << min << " minutes " << sec << " seconds " << cardinalDirLat<< "\n";
+		sec.insert(0, ".");
+		float secf = std::stod(sec);
+		secf = 60 * secf;
+		std::cout << "Latitude " << deg << " degrees " << min << " minutes " << secf << " seconds " << cardinalDirLat<< "\n";
 	}
 	void printLong() {
 		double longit = std::stod(getLongitude());
@@ -67,11 +66,10 @@ public:
 		size_t start = stLong.find(".");
 		stLong.erase(0, start + 1);
 		std::string sec = stLong;
-		if (sizeof(sec)>2)
-		{
-			sec.insert(2, ".");
-		}
-		std::cout << "Longitude " << deg << " degrees " << min << " minutes " << sec << " seconds " << cardinalDirLong << "\n";
+		sec.insert(0, ".");
+		float secf = std::stod(sec);
+		secf = 60 * secf;
+		std::cout << "Longitude " << deg << " degrees " << min << " minutes " << secf << " seconds " << cardinalDirLong << "\n";
 	}
 };
 
